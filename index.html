@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osigwe Cynthia Kosisochukwu</title>
+    <style>
+        /* Section for stlying */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+            /* I did this to format my browser dispaly */
+
+
+        }
+
+
+        #mainhead {
+            color: rgb(101, 34, 101);
+        }
+
+        hr {
+            width: 100%;
+            color: whitesmoke;
+        }
+
+        .box {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .boxer {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            width: 70%;
+            align-items: center;
+            gap: 10px;
+            border: 2px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            background-color: beige;
+            box-shadow: 1px 10px 16px rgba(0, 0, 0, 0.31);
+
+        }
+
+        .me {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 70%;
+            align-items: start;
+            padding: 10px 0;
+            background-color: beige;
+
+        }
+
+        .course {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 70%;
+            align-items: start;
+            padding: 10px 0;
+
+        }
+
+        .placeholders {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            gap: 6px;
+
+
+        }
+
+
+        .about {
+            font-size: 30px;
+            font-family: serif;
+        }
+
+        .placeholders p {
+            font-size: 17px;
+            width: 80%;
+
+
+        }
+
+        span {
+            font-weight: bold;
+
+        }
+
+        .page p {
+            width: 100%;
+            text-align: start;
+        }
+
+        .page {
+            width: 100%;
+
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 70%;
+            align-items: start;
+            padding: 10px 0;
+
+        }
+
+        #send-btn {
+            padding: 8px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="boxer">
+            <h1 id="mainhead">Osigwe's Static Web </h1>
+            <!-- about author -->
+            <section class="me">
+                <p class="about">About Author</p class="about">
+                <div class="placeholders">
+                    <p class="myname"><span>FULL NAME: </span>Osigwe Cynthia</p>
+                    <p class="department"><span>DEPARTMENT: </span>Computer Science</p>
+                    <p class="matnum"><span>MATRIC NO: </span>UJ/2024/NS/0008</p>
+                    <p class="level"><span>LEVEL: </span>200</p>
+                    <p class="status"><span>MARITAL STATUS: </span>Open Minded</p>
+                </div>
+
+            </section>
+            <hr>
+            <!-- about website -->
+            <section class="course">
+
+                <p class="about">Site Info</p>
+                <div class="placeholders page">
+                    <p>This webpage was created in fulfillment of the requirements for <span>INS 205 – Web Application
+                            and Design.</span> The project showcases the implementation of HTML5 semantic tags,
+                        CSS-based styling, and essential web development methodologies. Designed as a personal profile
+                        page, it demonstrates the ability to structure content effectively, apply visual design
+                        principles, and develop user-friendly web interfaces. The webpage reflects the knowledge and
+                        practical skills gained during the course in the areas of web design, layout organization, and
+                        front-end development..
+                    </p>
+                    <p class="department"></p>
+
+
+                </div>
+
+            </section>
+
+            <hr>
+            <!-- contact segment -->
+            <section class="contact" id="contact">
+
+                <p class="about">Contact</p>
+                <p>For more information, click the button below to send me an email. <br> With Love.</p>
+
+
+                <a href="mailto:2008ns0008@unijos.edu.ng">
+                    <button id="send-btn">Send Email</button>
+                </a>
+            </section>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- copied javascript -->
+
+    <script>
+        /* -------------------------------------------------------
+           Matric-number → button colour
+           Replace the matric value below with your own number.
+           ------------------------------------------------------- */
+        const matric = "UJ/2000/NS/0222"; // <-- CHANGE THIS TO YOUR MAT. NO.
+
+        /* CHANGE NOTHING BEYOND THIS POINT - CHANGE NOTHING BEYOND THIS POINT */
+
+        function hashString(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+            }
+            return hash;
+        }
+
+        // Normalise input
+        const normalised = matric.trim().toUpperCase();
+
+        // Map the hash to a hue value between 0 and 359 degrees
+        const hue = hashString(normalised) % 360;
+
+        // Build an HSL colour: fixed saturation & lightness, varying hue
+        const buttonColour = `hsl(${hue}, 65%, 45%)`;
+
+        // Apply the colour to the Send Email button
+        document.getElementById("send-btn").style.background = buttonColour;
+    </script>
+
+</body>
+
+</html>
